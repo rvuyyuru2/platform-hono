@@ -45,6 +45,12 @@
       "import": "./dist/esm/src/interfaces/index.js"
     }
   },
+  "files": [
+    "dist",
+    "!dist/**/*.tsbuildinfo",
+    "Readme.md",
+    "LICENSE"
+  ],
   "publishConfig": {
     "access": "public"
   },
