@@ -1,0 +1,57 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Author {
+  books: [String!]
+  firstName: String!
+  id: Int!
+  lastName: String!
+}
+
+input CreateAuthorInput {
+  firstName: String!
+  lastName: String!
+}
+
+input CreateRecipeInput {
+  description: String
+  ingredients: [String!]!
+  title: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createAuthor(input: CreateAuthorInput!): Author!
+  createRecipe(input: CreateRecipeInput!): Recipe!
+  removeAuthor(id: Int!): Boolean!
+  removeRecipe(id: Int!): Boolean!
+  uploadAuthorPhoto(file: Upload!): Boolean!
+}
+
+type Query {
+  author(id: Int!): Author!
+  authors: [Author!]!
+  recipe(id: Int!): Recipe!
+  recipes: [Recipe!]!
+}
+
+type Recipe {
+  createdAt: DateTime!
+  description: String
+  id: Int!
+  ingredients: [String!]!
+  rating: Float!
+  title: String!
+}
+
+type Subscription {
+  authorCreated: Author
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
